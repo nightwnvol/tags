@@ -11,4 +11,11 @@ jobs:
         run: echo Hello, world!
 
       - name: Run a multi-line script
-        run: sleep 60
+        run: touch test.txt
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: testfile
+          path: ./test.txt
+          if-no-files-found: error
