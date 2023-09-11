@@ -6,11 +6,15 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - name: wait
-        uses: lewagon/wait-on-check-action@v1.3.1
+      - name: Download 
+        uses: dawidd6/action-download-artifact@v2.26.0
         with:
-          ref: ${{ github.ref }}
-          running-workflow-name: 'Publish on PyPI'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
-          allowed-conclusion: success
+          workflow: test.yml
+          workflow_conclusion: success
+          commit: ${{github.event.pull_request.head.sha}}
+          name: test.txt
+          path: dist
+          search_artifacts: true
+
+      - name: Check
+        run: ls -l
