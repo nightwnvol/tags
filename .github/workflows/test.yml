@@ -14,9 +14,6 @@ jobs:
       - name: Run a multi-line script
         run: touch test.txt
 
-      - name: Sleep 1min
-        run: sleep 60
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v3.1.2
         with:
