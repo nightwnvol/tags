@@ -12,6 +12,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
           check-name: 'Upload artifacts'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 120
           
       - name: Download 
