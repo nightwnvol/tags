@@ -1,4 +1,5 @@
 name: test
+run-name: ${{ github.sha }}
 on:
   push:
     branches: [ "main" ]
