@@ -1,4 +1,5 @@
 name: test2
+run-name: ${{ github.sha }}
 on:
   release:
     types: [published, edited]
@@ -12,6 +13,7 @@ jobs:
           workflow: test.yml
           workflow_conclusion: success
           commit: ${{github.event.pull_request.head.sha}}
+          branch: master
           name: testfile
           path: dist
           search_artifacts: true
