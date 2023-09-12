@@ -13,7 +13,6 @@ jobs:
           workflow: test.yml
           workflow_conclusion: success
           commit: ${{github.event.pull_request.head.sha}}
-          branch: main
           name: testfile
           path: dist
           search_artifacts: true
@@ -23,6 +22,13 @@ jobs:
           ls -l
           ls -l dist/*
 
-      - name: Check release
+      - name: Check pre-release
+        if: ${{ github.event.release.prerelease == true }}
         run: |
+          echo PRERELEASE
+
+      - name: Check release
+        if: ${{ github.event.release.prerelease == false }}
+        run: |
+          echo RELEASE
           echo ${{ github.event.release.tag_name }}

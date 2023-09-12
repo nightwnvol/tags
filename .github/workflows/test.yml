@@ -2,7 +2,9 @@ name: test
 run-name: ${{ github.sha }}
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - releases/**
 jobs:
   build:
     runs-on: ubuntu-latest
