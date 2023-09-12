@@ -13,7 +13,7 @@ jobs:
           workflow: test.yml
           workflow_conclusion: success
           commit: ${{github.event.pull_request.head.sha}}
-          branch: master
+          branch: main
           name: testfile
           path: dist
           search_artifacts: true
