@@ -7,13 +7,20 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
+      - name: Wait 2min and check
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'Upload artifacts'
+          wait-interval: 120
+          
       - name: Download 
         uses: dawidd6/action-download-artifact@v2.26.0
         with:
           workflow: test.yml
           workflow_conclusion: success
           commit: ${{github.event.pull_request.head.sha}}
-          branch: master
+          branch: main
           name: testfile
           path: dist
           search_artifacts: true
