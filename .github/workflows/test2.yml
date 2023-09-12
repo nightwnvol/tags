@@ -7,14 +7,6 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - name: Wait 2min and check
-        uses: lewagon/wait-on-check-action@v1.3.1
-        with:
-          ref: ${{ github.ref }}
-          check-name: 'Upload artifacts'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 120
-          
       - name: Download 
         uses: dawidd6/action-download-artifact@v2.26.0
         with:
@@ -26,7 +18,11 @@ jobs:
           path: dist
           search_artifacts: true
 
-      - name: Check
+      - name: Check files
         run: |
           ls -l
           ls -l dist/*
+
+      - name: Check release
+        run: |
+          echo ${{ github.event.release.tag_name }}
