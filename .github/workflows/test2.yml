@@ -6,6 +6,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-20.04
+    environment:
+      name: production
+      url: https://github.com
     steps:
       - name: Download 
         uses: dawidd6/action-download-artifact@v2.26.0
