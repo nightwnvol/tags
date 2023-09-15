@@ -2,7 +2,7 @@ name: test2
 run-name: ${{ github.sha }}
 on:
   release:
-    types: [published, edited]
+    types: [published]
 jobs:
   test:
     runs-on: ubuntu-20.04

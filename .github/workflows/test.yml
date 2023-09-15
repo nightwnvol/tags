@@ -3,8 +3,8 @@ run-name: ${{ github.sha }}
 on:
   push:
     branches:
-      - main
-      - releases/**
+      - 'main'
+      - 'release/**'
 jobs:
   build:
     runs-on: ubuntu-latest
