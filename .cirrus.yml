@@ -1,5 +1,5 @@
 commit_task:
-  only_if: changesInclude('./**')
+  only_if: changesInclude('**')
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
   
