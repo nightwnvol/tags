@@ -1,5 +1,5 @@
 commit_task:
-  only_if: changesInclude('**')
+  only_if: ${CIRRUS_CHANGE_IN_REPO} != ${CIRRUS_LAST_GREEN_CHANGE}
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
   
