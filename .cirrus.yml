@@ -4,7 +4,8 @@ commit_task:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
   
   commit_script: echo "Hello World from macOS! (commit push)"
-  test_script: echo ${CIRRUS_BRANCH} - ${CIRRUS_TAG} - ${CIRRUS_PR}
+  
+  test_script: echo ${CIRRUS_BRANCH} - ${CIRRUS_TAG} - ${CIRRUS_PR} - ${CIRRUS_LAST_GREEN_BUILD_ID} - ${CIRRUS_BASE_SHA} - ${CIRRUS_BUILD_ID}
 
 tag_task:
   only_if: $CIRRUS_TAG != ""
@@ -13,6 +14,8 @@ tag_task:
 
   tag_script: echo "Hello World from macOS! (tag push)"
 
+  test_script: echo ${CIRRUS_BRANCH} - ${CIRRUS_TAG} - ${CIRRUS_PR} - ${CIRRUS_LAST_GREEN_BUILD_ID} - ${CIRRUS_BASE_SHA} - ${CIRRUS_BUILD_ID}
+
 pr_task:
   only_if: $CIRRUS_PR != ""
   macos_instance:
@@ -20,4 +23,4 @@ pr_task:
 
   pr_script: echo "Hello World from macOS! (PR push)"
 
-  test_script: echo ${CIRRUS_BRANCH} - ${CIRRUS_TAG} - ${CIRRUS_PR} - ${CIRRUS_LAST_GREEN_BUILD_ID} - ${CIRRUS_BASE_SHA}
+  test_script: echo ${CIRRUS_BRANCH} - ${CIRRUS_TAG} - ${CIRRUS_PR} - ${CIRRUS_LAST_GREEN_BUILD_ID} - ${CIRRUS_BASE_SHA} - ${CIRRUS_BUILD_ID}
