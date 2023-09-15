@@ -1,0 +1,7 @@
+testcirrus_task:
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-ventura-base:latest
+  
+  testcirrus_script: echo "Hello World from macOS!"
+
+  testtag_script: echo ${CIRRUS_TAG}
