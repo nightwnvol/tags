@@ -19,3 +19,5 @@ pr_task:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
 
   pr_script: echo "Hello World from macOS! (PR push)"
+
+  test_script: echo ${CIRRUS_BRANCH} - ${CIRRUS_TAG} - ${CIRRUS_PR} - ${CIRRUS_LAST_GREEN_BUILD_ID} - ${CIRRUS_BASE_SHA}
