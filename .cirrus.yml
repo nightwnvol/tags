@@ -1,7 +1,13 @@
-testcirrus_task:
+commit_task:
+  only_if: $CIRRUS_TAG == ""
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
   
-  testcirrus_script: echo "Hello World from macOS!"
+  commit_script: echo "Hello World from macOS! (commit push)"
 
-  testtag_script: echo ${CIRRUS_TAG}
+tag_task:
+  only_if: $CIRRUS_TAG != ""
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-ventura-base:latest
+
+  tag_script: echo "Hello World from macOS! (tag push)"
