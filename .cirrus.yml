@@ -1,9 +1,10 @@
 commit_task:
-  only_if: $CIRRUS_TAG == "" && $CIRRUS_PR == ""
+  only_if: (${CIRRUS_BRANCH} == 'main' || ${CIRRUS_BRANCH} =~ 'release/.*') && ${CIRRUS_TAG} == '' && ${CIRRUS_PR} == ''
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
   
   commit_script: echo "Hello World from macOS! (commit push)"
+  test_script: echo ${CIRRUS_BRANCH} - ${CIRRUS_TAG} - ${CIRRUS_PR}
 
 tag_task:
   only_if: $CIRRUS_TAG != ""
