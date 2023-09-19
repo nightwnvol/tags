@@ -1,5 +1,6 @@
 manual_task:
   trigger_type: manual
+  auto_cancellation: $CIRRUS_BRANCH != 'main' && $CIRRUS_BRANCH !=~ 'release/.*'
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
 
