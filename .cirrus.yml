@@ -1,3 +1,10 @@
+manual_task:
+  trigger_type: manual
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-ventura-base:latest
+
+  test_script: echo "Hello World from macOS! (manual trigger)"
+
 commit_task:
   alias: commit
   only_if: ${CIRRUS_CHANGE_IN_REPO} != ${CIRRUS_LAST_GREEN_CHANGE}
