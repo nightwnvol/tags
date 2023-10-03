@@ -22,3 +22,9 @@ jobs:
           name: testfile
           path: ./test.txt
           if-no-files-found: error
+
+  test-mac:
+    runs-on: macos-13
+    steps:
+      - name: check
+        run: echo Hello from M1
